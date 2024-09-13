@@ -1,20 +1,37 @@
 import { existsSync, readFileSync, writeFileSync } from "node:fs";
-import { randomUUID } from "node:crypto";
-// Averiguar que importar de NODE para realizar el hash del pass
-// Averiguar como "activar" la lectura de las variables de entorno del archivo .env (dotenv)
+import { randomUUID, createHash } from "node:crypto";
+import dotenv from "dotenv";
 import { handleError } from "./utils/handleError.js";
 
 // 1° recuperar variables de entorno
+dotenv.config();
+const PATH_FILE_USER = process.env.PATH_FILE_USER;
+const PATH_FILE_ERROR = process.env.PATH_FILE_ERROR;
 
 // 2° Declarar los metodos
 
-const getUsers = () => {
+const getUsers = (urlfile) => {
   try {
+    if (!urlfile) {
+      throw new Error("Access denied")
+    }
+
+    const exists = existsSync(urlfile);
+
+    if (!exists) {
+      writeFileSync(urlfile, JSON.stringify([]));
+      return [];
+    }
+
+    const users = JSON.parse(readFileSync(urlfile));
+    return users;
+
   } catch (error) {
-    // const objError = handleError()
-    // return objError;
+    const objError = handleError(error, PATH_FILE_ERROR);
+    return objError;
   }
 };
+
 
 const getUserById = (id) => {
   try {

@@ -1,6 +1,6 @@
 [
   {
-    "id": 1,
+    "id": "1",
     "nombre": "Juan",
     "apellido": "Pérez",
     "email": "juan.perez@example.com",
@@ -8,7 +8,7 @@
     "isLoggedIn": false
   },
   {
-    "id": 2,
+    "id": "2",
     "nombre": "Ana",
     "apellido": "Gómez",
     "email": "ana.gomez@example.com",
@@ -16,7 +16,7 @@
     "isLoggedIn": false
   },
   {
-    "id": 3,
+    "id": "3",
     "nombre": "Carlos",
     "apellido": "López",
     "email": "carlos.lopez@example.com",

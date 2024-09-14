@@ -169,7 +169,24 @@ const updateUser = (userData) => {
 
 const deleteUser = (id) => {
   try {
-  } catch (error) {}
+    if (!id) {
+      throw new Error("ID is missing");
+    }
+
+    const users = getUsers(PATH_FILE_USER);
+    const userToDelete = getUserById(id);
+
+    const filteredUsers = users.filter((user) => user.id !== id);
+
+    writeFileSync(PATH_FILE_USER, JSON.stringify(filteredUsers));
+    return userToDelete;
+  } catch (error) {
+    const objError = handleError(error, PATH_FILE_ERROR);
+    return objError;
+  }
 };
+
+// const respuesta = deleteUser("1");
+// console.log(respuesta);
 
 export { getUsers, getUserById, addUser, updateUser, deleteUser };

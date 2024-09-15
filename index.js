@@ -6,6 +6,7 @@ import { getUsers, getUserById, addUser, updateUser, deleteUser } from "./models
 import dotenv from "dotenv";
 import {createUserObject, createUpdateUserObject} from "./utils/createObjetcUser.js";
 import { handleError } from "./utils/handleError.js";
+import { help } from "./utils/help.js";
 
 dotenv.config();
 
@@ -30,6 +31,9 @@ switch (option) {
   case "delete":
     console.log(deleteUser(args[1]));
     break;
+  case "help":
+  console.log(help());
+  break;
   default:
     const error = handleError(
       new Error("Comand Incorrect"),

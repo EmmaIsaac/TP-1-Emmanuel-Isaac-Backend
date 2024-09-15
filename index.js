@@ -26,8 +26,10 @@ switch (option) {
   case "update":
     const updatedUser = createUpdateUserObject(args);
     console.log(updateUser(updatedUser));
-    break; //{id, nombre, apellido, email, password}
-
+    break;
+  case "delete":
+    console.log(deleteUser(args[1]));
+    break;
   default:
     const error = handleError(
       new Error("Comand Incorrect"),

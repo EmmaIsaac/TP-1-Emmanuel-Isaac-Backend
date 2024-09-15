@@ -16,7 +16,15 @@ switch (option) {
   case "list":
     console.log(getUsers(process.env.PATH_FILE_USER));
     break;
+  case "search":
+    console.log(getUserById(args[1]));
+    break;
+  case "add":
+    const newUser = createUserObject(args);
+    console.log(addUser(newUser));
+    break;
 
+    
   default:
     const error = handleError(
       new Error("Comand Incorrect"),

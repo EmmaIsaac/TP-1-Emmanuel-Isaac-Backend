@@ -23,8 +23,11 @@ switch (option) {
     const newUser = createUserObject(args);
     console.log(addUser(newUser));
     break;
+  case "update":
+    const updatedUser = createUpdateUserObject(args);
+    console.log(updateUser(updatedUser));
+    break; //{id, nombre, apellido, email, password}
 
-    
   default:
     const error = handleError(
       new Error("Comand Incorrect"),

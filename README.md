@@ -2,6 +2,15 @@
 
 Esta es una aplicación de administración de usuarios construida con Node.js. La aplicación te permite gestionar usuarios mediante argumentos desde la línea de comandos. A continuación, se detallan las funcionalidades y cómo usarlas.
 
+## Integrantes
+
+-Carlos Romano
+-Luis Furtado
+-Juan Pablo Rosso
+-Thiago Cugliari
+-Carlos Pastore
+-Emmanuel Isaac
+
 ## Instalación
 
 1. Clona el repositorio:

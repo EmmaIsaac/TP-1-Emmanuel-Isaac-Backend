@@ -1,6 +1,3 @@
-// 1° objetener los argumentos pasador por terminal (que vienen del index)
-// 2° desarrollar las funciones que crean los objetos para añadir un usario y actualizar un usuario
-// 3° aplicar control de errores entorno a las posibilidades de que surja uno
 import { handleError } from "./handleError.js";
 import dotenv from "dotenv";
 

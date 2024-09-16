@@ -3,12 +3,9 @@ import { randomUUID, createHash } from "node:crypto";
 import dotenv from "dotenv";
 import { handleError } from "./utils/handleError.js";
 
-// 1° recuperar variables de entorno
 dotenv.config();
 const PATH_FILE_USER = process.env.PATH_FILE_USER;
 const PATH_FILE_ERROR = process.env.PATH_FILE_ERROR;
-
-// 2° Declarar los metodos
 
 const getUsers = (urlfile) => {
   try {
@@ -101,10 +98,6 @@ const addUser = (userData) => {
   }
 };
 
-
-// todos los datos del usuario seleccionado se podrían modificar menos el ID
-// si se modifica la pass debería ser nuevamente hasheada
-// si se modifica el email, validar que este no exista
 const updateUser = (userData) => {
   try {
     const {id, nombre, apellido, email, password} =  userData;
@@ -156,17 +149,6 @@ const updateUser = (userData) => {
   }
 };
 
-// const userToUpdate = {
-//   id:"1",
-//   nombre:"Juan pablo",
-//   apellido:"Pérez con Pan",
-//   email:"juan.perez@example.com",
-//   password:"contraseña123567"
-// };
-
-// const respuesta = updateUser(userToUpdate);
-// console.log(respuesta);
-
 const deleteUser = (id) => {
   try {
     if (!id) {
@@ -185,8 +167,5 @@ const deleteUser = (id) => {
     return objError;
   }
 };
-
-// const respuesta = deleteUser("1");
-// console.log(respuesta);
 
 export { getUsers, getUserById, addUser, updateUser, deleteUser };

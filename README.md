@@ -4,12 +4,12 @@ Esta es una aplicación de administración de usuarios construida con Node.js. L
 
 ## Integrantes
 
+-Emmanuel Isaac
 -Carlos Romano
 -Luis Furtado
 -Juan Pablo Rosso
 -Thiago Cugliari
 -Carlos Pastore
--Emmanuel Isaac
 
 ## Instalación
 

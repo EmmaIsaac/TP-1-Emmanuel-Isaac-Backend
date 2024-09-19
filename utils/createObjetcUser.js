@@ -6,10 +6,6 @@ const createUserObject = (args) => {
   try {
     const [nombre, apellido, email, password] = args.slice(1); 
 
-  if (!nombre || !apellido || !email || !password) {
-    throw new Error("Missing data2");
-  }
-
   return {
     nombre, 
     apellido, 
@@ -25,10 +21,6 @@ const createUserObject = (args) => {
 const createUpdateUserObject = (args) => {
   try {
     const [id, nombre, apellido, email, password] = args.slice(1); 
-
-    if (!id) {
-      throw new Error("ID is missing2");
-    }
 
     const updatedUser = {};
     updatedUser.id = id;    

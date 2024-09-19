@@ -119,6 +119,12 @@ const updateUser = (userData) => {
     }
 
     const users = getUsers(PATH_FILE_USER);
+
+    const foundUser = users.find((user) => user.id === id);
+
+    if (!foundUser) {
+      throw new Error("User not found");
+    }
     //Filtro la lista de usuarios excluyendo al id cargado
     const filteredUsers = users.filter((user) => user.id !== id);
     //Con la lista filtrada, busco que otra cuenta no este usando el email que se quiere actualizar
@@ -126,12 +132,6 @@ const updateUser = (userData) => {
     //Si otra cuenta posee el email, arroja el error
     if (foundEmail) {
       throw new Error("Email already exists. Try another email.")
-    }
-
-    const foundUser = users.find((user) => user.id === id);
-
-    if (!foundUser) {
-      throw new Error("User not found");
     }
 
     if (nombre) foundUser.nombre = nombre;

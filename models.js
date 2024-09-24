@@ -2,6 +2,7 @@ import { existsSync, readFileSync, writeFileSync } from "node:fs";
 import { randomUUID, createHash } from "node:crypto";
 import dotenv from "dotenv";
 import { handleError } from "./utils/handleError.js";
+import {validateEmail} from "./utils/validateEmail.js";
 
 dotenv.config();
 const PATH_FILE_USER = process.env.PATH_FILE_USER;
@@ -63,7 +64,7 @@ const addUser = (userData) => {
       throw new Error("Data not string");
     }
 
-    if (!email.includes("@")) {
+    if (!validateEmail(email)) {
       throw new Error("Invalid Email");
     }
 
@@ -114,7 +115,7 @@ const updateUser = (userData) => {
       throw new Error("Data not string");
     }
 
-    if (!email.includes("@")) {
+    if (!validateEmail(email)) {
       throw new Error("Invalid Email");
     }
 
